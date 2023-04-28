@@ -9,6 +9,7 @@ require("dotenv").config();
 const {mongooseConnect} = require('./mongoose');
 mongooseConnect();
 
+//files in routes folder
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const blogRouter = require('./routes/blogs');

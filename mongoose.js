@@ -11,10 +11,11 @@ async function mongooseConnect(){
         console.log("connected to database");
     } catch (error) {
         console.log(error)
-
     }
 }
-module.exports = {mongooseConnect};
+module.exports = {
+    mongooseConnect,
+};
 
 //I love ice-cream!
 
