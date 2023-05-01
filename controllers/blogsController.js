@@ -4,7 +4,7 @@ async function getAllBlogs(req, res) {
     try {
         const allBlogs = await Blog.find({});
         res.json({success: true, blogs: allBlogs});
-    }catch (error) {
+    } catch (error) {
     res.json({ success: false, message: error });
     }
 }
@@ -15,6 +15,7 @@ async function createBlog(req, res){
             title: req.body.title,
             author: req.body.author,
             text: req.body.text,
+            category: req.body.category,
         });
         const response = await newBlog.save();
         res.json({ success: true, addedBlog: response});
@@ -23,7 +24,7 @@ async function createBlog(req, res){
         res.json({ success: false, message: error});
     }
 }
-
+//read
 async function getOneBlogById(req, res){
     try{
         //console.log(req.params);
@@ -37,7 +38,7 @@ async function getOneBlogById(req, res){
         res.json({success: false, message: error});
     }
 }
-
+//update
 async function updateOneBlogById(req, res){
     try{
         const { idToUpdate } = req.params;
@@ -54,7 +55,7 @@ async function updateOneBlogById(req, res){
 }
 
 
-
+//delete
 async function deleteOneBlogById(req, res){
     try{
         const { idToDelete } = req.params;
