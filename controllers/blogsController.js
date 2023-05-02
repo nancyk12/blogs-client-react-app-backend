@@ -39,19 +39,20 @@ async function getOneBlogById(req, res){
     }
 }
 //update
-async function updateOneBlogById(req, res){
-    try{
-        const { idToUpdate } = req.params;
-        const updatedBlog = await Blog.findOneAndUpdate(
-            {id:idToUpdate}, 
-            req.body
-            );
-        res.json({success: true, blogUpdate: updatedBlog});
-    }catch (error){
-        console.log(error);
-        res.json({ success:false, message: error});
+async function updateOneBlogById(req, res) {
+	try {
+		const { idToUpdate } = req.params;
 
-    }
+		const updatedBlog = await Blog.findOneAndUpdate(
+			{ id: idToUpdate },
+			req.body
+		);
+		// const updatedBlog = Blog.updateOne({id: req.params.id}, req.body);
+		res.json({ success: true, blogUpdate: updatedBlog });
+	} catch (error) {
+		console.log(error);
+		res.json({ success: false, message: error });
+	}
 }
 
 
